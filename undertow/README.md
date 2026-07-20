@@ -89,17 +89,3 @@ O `SessionManager` expõe um timer de ~1s (`pollAlerts`) que drena os alerts
 do libtorrent e reconstrói um snapshot (`QVector<TorrentRecord>`); a UI nunca
 toca em tipos do libtorrent diretamente.
 
-## Limitações conhecidas / próximos passos
-
-- **Uma instância por processo**: abrir um segundo `.torrent` ou link magnet
-  pelo gerenciador de arquivos enquanto o Undertow já está rodando inicia um
-  novo processo (nova sessão, nova porta) em vez de entregar para a janela
-  já aberta. Dá para resolver com IPC via `QLocalServer`/`QLocalSocket`
-  (parecido com o que você já fez no `torrent.py`) — não incluí para manter
-  o escopo desta primeira versão sob controle.
-- O estado da tabela DHT não é persistido entre reinícios (ela se reconstrói
-  sozinha em segundos, então o impacto prático é mínimo).
-- RSS e agendamento de banda por horário não estão implementados.
-- Sem tradução para outros idiomas ainda, mas todas as strings de interface
-  já passam por `tr()`, então basta gerar um `.ts`/`.qm` com as ferramentas
-  do Qt Linguist se quiser adicionar inglês, por exemplo.

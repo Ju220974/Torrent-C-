@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Undertow
+GenericName=Cliente BitTorrent
+Comment=Cliente de torrents com interface gráfica
+Exec=undertow %u
+Icon=undertow
+Terminal=false
+Categories=Network;FileTransfer;
+MimeType=application/x-bittorrent;x-scheme-handler/magnet;
+StartupNotify=true
